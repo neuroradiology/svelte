@@ -1,51 +1,83 @@
-# Svelte
+<p>
+  <a href="https://svelte.dev">
+	<img alt="Cybernetically enhanced web apps: Svelte" src="https://sveltejs.github.io/assets/banner.png">
+  </a>
 
-The magical disappearing UI framework. [Read the introductory blog post.](https://svelte.technology/blog/frameworks-without-the-framework/)
+  <a href="https://www.npmjs.com/package/svelte">
+    <img src="https://img.shields.io/npm/v/svelte.svg" alt="npm version">
+  </a>
 
----
-
-This is the Svelte compiler, which is primarily intended for authors of tooling that integrates Svelte with different build systems. If you just want to write Svelte components and use them in your app, you probably want one of those tools:
-
-* [svelte-cli](https://github.com/sveltejs/svelte-cli) – Command line interface for compiling components
-* [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) – Rollup plugin
-* More to come!
+  <a href="https://github.com/sveltejs/svelte/blob/master/LICENSE">
+    <img src="https://img.shields.io/npm/l/svelte.svg" alt="license">
+  </a>
+</p>
 
 
-## API
+## What is Svelte?
 
-```js
-import * as svelte from 'svelte';
+Svelte is a new way to build web applications. It's a compiler that takes your declarative components and converts them into efficient JavaScript that surgically updates the DOM.
 
-const { code, map } = svelte.compile( source, {
-	// the target module format – defaults to 'es' (ES2015 modules), can
-	// also be 'amd', 'cjs', 'umd' or 'iife'
-	format: 'umd',
+Learn more at the [Svelte website](https://svelte.dev), or stop by the [Discord chatroom](https://svelte.dev/chat).
 
-	// the filename of the source file, used in e.g. generating sourcemaps
-	filename: 'MyComponent.html',
 
-	// the name of the constructor. Required for 'iife' and 'umd' output,
-	// but otherwise mostly useful for debugging. Defaults to 'SvelteComponent'
-	name: 'MyComponent',
+## Supporting Svelte
 
-	// for 'amd' and 'umd' output, you can optionally specify an AMD module ID
-	amd: {
-		id: 'my-component'
-	},
+Svelte is an MIT-licensed open source project with its ongoing development made possible entirely by the support of awesome volunteers. If you'd like to support their efforts, please consider:
 
-	// custom error/warning handlers. By default, errors will throw, and
-	// warnings will be printed to the console. Where applicable, the
-	// error/warning object will have `pos`, `loc` and `frame` properties
-	onerror: err => {
-		console.error( err.message );
-	},
+- [Becoming a backer on Open Collective](https://opencollective.com/svelte).
 
-	onwarning: warning => {
-		console.warn( warning.message );
-	}
-});
+Funds donated via Open Collective will be used for compensating expenses related to Svelte's development such as hosting costs. If sufficient donations are received, funds may also be used to support Svelte's development more directly.
+
+
+## Development
+
+Pull requests are encouraged and always welcome. [Pick an issue](https://github.com/sveltejs/svelte/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) and help us out!
+
+To install and work on Svelte locally:
+
+```bash
+git clone https://github.com/sveltejs/svelte.git
+cd svelte
+npm install
 ```
 
+> Do not use Yarn to install the dependencies, as the specific package versions in `package-lock.json` are used to build and test Svelte.
+
+To build the compiler, and all the other modules included in the package:
+
+```bash
+npm run build
+```
+
+To watch for changes and continually rebuild the package (this is useful if you're using [npm link](https://docs.npmjs.com/cli/link.html) to test out changes in a project locally):
+
+```bash
+npm run dev
+```
+
+The compiler is written in [TypeScript](https://www.typescriptlang.org/), but don't let that put you off — it's basically just JavaScript with type annotations. You'll pick it up in no time. If you're using an editor other than [Visual Studio Code](https://code.visualstudio.com/) you may need to install a plugin in order to get syntax highlighting and code hints etc.
+
+
+### Running Tests
+
+```bash
+npm run test
+```
+
+To filter tests, use `-g` (aka `--grep`). For example, to only run tests involving transitions:
+
+```bash
+npm run test -- -g transition
+```
+
+
+## svelte.dev
+
+The source code for https://svelte.dev, including all the documentation, lives in the [site](site) directory. The site is built with [Sapper](https://sapper.svelte.dev).
+
+### Is svelte.dev down?
+
+Probably not, but it's possible. If you can't seem to access any `.dev` sites, check out [this SuperUser question and answer](https://superuser.com/q/1413402).
 
 ## License
 

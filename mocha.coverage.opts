@@ -1,5 +1,4 @@
---require babel-register
---require reify
- --recursive
-./**/__test__.js
+--require source-map-support/register
+--full-trace
+--recursive
 test/test.js
